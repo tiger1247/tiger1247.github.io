@@ -1,0 +1,166 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nudge4: small, useful apps for Windows</title>
+<meta name="description" content="Nudge4 makes small, private, no-nonsense Windows apps: PhoneDrop for PC to iPhone file transfer, and InkNote, a pen-first notebook.">
+<meta property="og:title" content="Nudge4: small, useful apps for Windows">
+<meta property="og:description" content="PhoneDrop: PC to iPhone file transfer over Wi-Fi. InkNote: a pen-first notebook for Windows.">
+<meta property="og:image" content="img/phonedrop-1.jpg">
+<link rel="icon" href="img/favicon.png">
+<style>
+  :root {
+    --bg: #f7f7fa; --card: #ffffff; --text: #16161d; --muted: #5d5d6e; --line: #e4e4ec;
+    --accent: #5b4cf0; --accent-ink: #ffffff; --soft: #efedff; --free: #0f7a4a; --free-soft: #e3f6ec;
+    --shadow: 0 1px 2px rgba(20,20,40,.05), 0 8px 24px rgba(20,20,40,.06);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #101015; --card: #1a1a22; --text: #ececf3; --muted: #a2a2b5; --line: #2c2c38;
+      --accent: #8b80ff; --accent-ink: #0d0d14; --soft: #26233f; --free: #5fd39b; --free-soft: #17322a;
+      --shadow: none;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { -webkit-text-size-adjust: 100%; }
+  body {
+    margin: 0; background: var(--bg); color: var(--text);
+    font: 16px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  a { color: var(--accent); }
+  .wrap { max-width: 1040px; margin: 0 auto; padding: 0 16px; }
+
+  header { padding: 28px 0 8px; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; text-decoration: none; color: var(--text); }
+  .brand-mark { width: 30px; height: 30px; border-radius: 8px; background: var(--accent); color: var(--accent-ink); display: grid; place-items: center; font-size: 15px; }
+
+  .hero { padding: 48px 0 40px; }
+  .hero h1 { font-size: clamp(30px, 5vw, 46px); line-height: 1.15; margin: 0 0 14px; letter-spacing: -0.02em; max-width: 18ch; }
+  .hero p { font-size: 18px; color: var(--muted); margin: 0; max-width: 56ch; }
+
+  .product {
+    background: var(--card); border: 1px solid var(--line); border-radius: 18px; box-shadow: var(--shadow);
+    display: grid; grid-template-columns: 1fr 1.15fr; gap: 32px; padding: 32px; margin-bottom: 28px; align-items: center;
+  }
+  .product:nth-of-type(even) .shots { order: -1; }
+  .head { display: flex; align-items: center; gap: 14px; margin-bottom: 12px; }
+  .head img { width: 56px; height: 56px; border-radius: 13px; }
+  .head h2 { margin: 0; font-size: 26px; letter-spacing: -0.01em; }
+  .tag { display: inline-block; font-size: 13px; font-weight: 600; padding: 2px 10px; border-radius: 99px; background: var(--soft); color: var(--accent); }
+  .tag.free { background: var(--free-soft); color: var(--free); }
+  .lead { font-size: 17px; margin: 0 0 14px; }
+  ul.feat { margin: 0 0 22px; padding-left: 20px; color: var(--muted); }
+  ul.feat li { margin: 4px 0; }
+  ul.feat b { color: var(--text); font-weight: 600; }
+
+  .buy { display: flex; flex-wrap: wrap; gap: 10px; }
+  .btn {
+    display: inline-flex; align-items: center; gap: 8px; padding: 10px 16px; border-radius: 10px;
+    font-weight: 600; font-size: 15px; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--card);
+  }
+  .btn:hover { border-color: var(--accent); }
+  .btn.primary { background: var(--accent); color: var(--accent-ink); border-color: var(--accent); }
+  .btn.primary:hover { filter: brightness(1.08); }
+  .btn svg { width: 16px; height: 16px; flex: none; }
+  .small { font-size: 13px; color: var(--muted); margin: 12px 0 0; }
+
+  .shots { display: grid; gap: 12px; }
+  .shots img { width: 100%; height: auto; display: block; border-radius: 12px; border: 1px solid var(--line); }
+
+  footer { border-top: 1px solid var(--line); margin-top: 40px; padding: 28px 0 40px; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px; }
+  footer a { color: var(--muted); }
+
+  @media (max-width: 760px) {
+    .product { grid-template-columns: 1fr; padding: 20px; gap: 20px; }
+    .product:nth-of-type(even) .shots { order: 0; }
+    .hero { padding: 28px 0 24px; }
+  }
+</style>
+</head>
+<body>
+<header>
+  <div class="wrap">
+    <a class="brand" href="./"><span class="brand-mark">N4</span>Nudge4</a>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="hero">
+    <h1>Small, useful apps for Windows.</h1>
+    <p>Private by design, with no accounts, ads or tracking. Each app does one job well.</p>
+  </section>
+
+  <article class="product" id="phonedrop">
+    <div>
+      <div class="head">
+        <img src="img/phonedrop-logo.png" alt="" width="56" height="56">
+        <div>
+          <h2>PhoneDrop</h2>
+          <span class="tag">$4.99 · free trial</span>
+        </div>
+      </div>
+      <p class="lead">Send files between your Windows PC and iPhone over Wi-Fi. There's nothing to install on the iPhone.</p>
+      <ul class="feat">
+        <li><b>PC to iPhone:</b> drag files in, or right-click any file and choose Send to iPhone</li>
+        <li><b>iPhone to PC:</b> photos, videos and files land in Downloads</li>
+        <li><b>Shared clipboard</b> for links and text, in both directions</li>
+        <li><b>Stays local:</b> files never leave your own network</li>
+      </ul>
+      <div class="buy">
+        <a class="btn primary" href="https://apps.microsoft.com/detail/9NC591X3B2G7">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M1 1h6.5v6.5H1zM8.5 1H15v6.5H8.5zM1 8.5h6.5V15H1zM8.5 8.5H15V15H8.5z"/></svg>
+          Microsoft Store
+        </a>
+        <a class="btn" href="https://rishav33.gumroad.com/l/phonedrop">Buy direct, $4.99</a>
+      </div>
+      <p class="small">Needs Windows 10 or 11, with the PC and iPhone on the same Wi-Fi. <a href="https://github.com/tiger1247/send-to-iphone/blob/main/PRIVACY.md">Privacy</a> · <a href="https://github.com/tiger1247/send-to-iphone/issues">Support</a></p>
+    </div>
+    <div class="shots">
+      <img src="img/phonedrop-1.jpg" alt="PhoneDrop sending files from a PC to an iPhone" width="1280" height="720" loading="lazy">
+      <img src="img/phonedrop-2.jpg" alt="Photos from an iPhone arriving on the PC" width="1280" height="720" loading="lazy">
+    </div>
+  </article>
+
+  <article class="product" id="inknote">
+    <div>
+      <div class="head">
+        <img src="img/inknote-logo.png" alt="" width="56" height="56">
+        <div>
+          <h2>InkNote</h2>
+          <span class="tag free">Free on the Microsoft Store</span>
+        </div>
+      </div>
+      <p class="lead">A fast, pen-first notebook that feels like writing on paper.</p>
+      <ul class="feat">
+        <li><b>Smooth, pressure-sensitive ink</b> for Surface pens, Wacom and XP-Pen tablets, mouse and touch</li>
+        <li><b>Lasso</b> to move, resize and recolour; text boxes, pictures and shapes</li>
+        <li><b>Ruled, grid or dotted paper</b> in light and dark themes</li>
+        <li><b>Export to PDF</b>; works offline, with auto-save and daily backups</li>
+      </ul>
+      <div class="buy">
+        <a class="btn primary" href="https://apps.microsoft.com/detail/9PBNW3288WW4">
+          <svg viewBox="0 0 16 16" aria-hidden="true"><path fill="currentColor" d="M1 1h6.5v6.5H1zM8.5 1H15v6.5H8.5zM1 8.5h6.5V15H1zM8.5 8.5H15V15H8.5z"/></svg>
+          Get it free
+        </a>
+        <a class="btn" href="https://rishav33.gumroad.com/l/inknote">Support with a tip</a>
+        <a class="btn" href="https://github.com/tiger1247/inknote">Source code</a>
+      </div>
+      <p class="small">Needs Windows 10 or 11. Open source under the MIT licence. <a href="https://github.com/tiger1247/inknote/blob/main/PRIVACY.md">Privacy</a> · <a href="https://github.com/tiger1247/inknote/issues">Support</a></p>
+    </div>
+    <div class="shots">
+      <img src="img/inknote-1.jpg" alt="Handwritten notes on ruled paper in InkNote" width="1280" height="720" loading="lazy">
+      <img src="img/inknote-2.jpg" alt="InkNote in dark theme" width="1280" height="720" loading="lazy">
+    </div>
+  </article>
+</main>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Nudge4</span>
+    <span><a href="https://github.com/tiger1247">GitHub</a></span>
+  </div>
+</footer>
+</body>
+</html>
